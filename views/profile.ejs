@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>PROFILE</title>
+  </head>
+  <h1>PROFILE</h1>
+  <body>
+
+    <table>
+     <thead>
+       <tr>
+         <td>First Name</td>
+         <td>Last Name</td>
+         <td>Email</td>
+         <td>Age</td>
+       </tr>
+     </thead>
+     <tbody>
+          <tr>
+            <td><%=userResults.first_name %></td>
+            <td><%=userResults.last_name %></td>
+            <td><%=userResults.email%></td>
+            <td><%=userResults.age %></td>
+          </tr>
+
+     </tbody>
+   </table>
+   <button type="button" name="button"><a href="/edit/<%= userResults.id%>">EDIT</a></button>
+
+  </body>
+</html>
