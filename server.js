@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 const port = process.env.PORT || 8000;
 app.use(bodyParser.json({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
 app.get('/users', function(req, res) {
@@ -44,6 +45,24 @@ app.get('/edit/:id', function(req, res) {
     .catch((err)=>{
       console.error(err);
     })
+});
+
+// Update one user
+app.post('/edit/:id', function(req, res) {
+  //console.log("******");
+  //console.log(req.body);
+  //console.log("req params - ", req.params.id);
+  knex('users')
+    .update(req.body)
+    .where('id', req.params.id)
+    .then((result) => {
+      //console.log(result);
+      res.redirect("/users");
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(400);
+    });
 });
 
 

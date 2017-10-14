@@ -1,33 +1,73 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>USERS PAGE</title>
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <title>USERS PAGE</title>
+</head>
+
+<body>
+  <div>
+    <h1>CREATE USER</h1>
+    <form class="" action="index.html" method="post">
+      <table>
+       <thead>
+         <tr>
+           <td>First Name</td>
+           <td>Last Name</td>
+           <td>Email</td>
+           <td>Age</td>
+         </tr>
+       </thead>
+       <tbody>
+            <tr>
+              <td><input type="text" name="first" value="" placeholder="first name"></td>
+              <td><input type="text" name="last" value="" placeholder="last name"></td>
+              <td><input type="text" name="email" value="" placeholder="email"></td>
+              <td><input type="text" name="age" value="" placeholder="age"></td>
+            </tr>
+
+       </tbody>
+     </table>
+     <button type="submit" name="submit">SUBMIT</button>
+    </form>
+
+  </div>
+  <div>
     <h1>USERS</h1>
 
     <table>
-     <thead>
-       <tr>
-         <td>First Name</td>
-         <td>Last Name</td>
-         <td>Email</td>
-         <td>Age</td>
-       </tr>
-     </thead>
-     <tbody>
+      <thead>
+        <tr>
+          <td>First Name</td>
+          <td>Last Name</td>
+          <td>Email</td>
+          <td>Age</td>
+        </tr>
+      </thead>
+      <tbody>
         <% for(let i = 0; i < userResults.length; i++){ %>
           <tr>
-            <td><a href='/profile/<%= userResults[i].id%>'><%=userResults[i].first_name %></a></td>
-            <td><%=userResults[i].last_name %></td>
-            <td><%=userResults[i].email%></td>
-            <td><%=userResults[i].age %></td>
+            <td>
+              <a href='/profile/<%= userResults[i].id%>'>
+                <%=userResults[i].first_name %>
+              </a>
+            </td>
+            <td>
+              <%=userResults[i].last_name %>
+            </td>
+            <td>
+              <%=userResults[i].email%>
+            </td>
+            <td>
+              <%=userResults[i].age %>
+            </td>
           </tr>
-        <% }; %>
+          <% }; %>
 
-     </tbody>
-   </table>
+      </tbody>
+    </table>
+  </div>
+</body>
 
-  </body>
 </html>
