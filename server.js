@@ -64,6 +64,20 @@ app.post('/edit/:id', function(req, res) {
       res.sendStatus(400);
     });
 });
+// Create new user
+app.post('/users', function(req, res) {
+
+  knex('users')
+    .insert(req.body, '*')
+    .then((result) => {
+      console.log(result);
+      res.redirect('/users');
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(400);
+    });
+});
 
 
 
